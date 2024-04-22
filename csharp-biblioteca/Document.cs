@@ -25,6 +25,8 @@ namespace csharp_biblioteca
             this.Author = author;
             this.Shelf = Author.Surname[0];
         }
+
+        public override string ToString() => $"TITLE: {this.Title}\nYEAR: {this.Year}\nCATEGORY: {this.Category}\nSHELF: {this.Shelf}\nAUTHOR: {this.Author}\n";
     }
 
 
@@ -34,6 +36,7 @@ namespace csharp_biblioteca
         HISTORY,
         MATHEMATICS,
         ECONOMY,
+        FANTASY,
         OTHER
     }
 }
