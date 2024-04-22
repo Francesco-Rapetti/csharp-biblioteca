@@ -10,18 +10,18 @@ namespace csharp_biblioteca
     {
         public string Name { get; }
         public string Surname { get; }
-        public List<Book> WrittenBooks { get; }
+        public List<Document> Documents { get; }
                
 
         public Author(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
-            this.WrittenBooks = new List<Book>();
+            this.Documents = new List<Document>();
         }
 
-        public void AddWrittenBook(Book book) => WrittenBooks.Add(book);
-        public string GetListWrittenBooks() => string.Join(", ", WrittenBooks);
+        public void AddDocument(Document book) => Documents.Add(book);
+        public string GetListDocuments() => string.Join(", ", Documents);
     }
     }
 }
