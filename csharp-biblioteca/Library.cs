@@ -41,5 +41,6 @@ namespace csharp_biblioteca
         public Document SearchDocumentByTitle(string title) => Documents.Find(doc => doc.Title == title) ?? throw new Exception("Document not found");
         public User SearchUser(string email) => Users.Find(user => user.Email == email) ?? throw new Exception("User not found");
         public Loan SearchLoan(string email, string id) => Loans.Find(loan => loan.User.Email == email && loan.Document.Id == id) ?? throw new Exception("Loan not found");
+        public List<Loan> SearchUserLoans(string name, string surname) => Loans.FindAll(loan => loan.User.Name == name && loan.User.Surname == surname) ?? throw new Exception("No loans found");
     }
 }
