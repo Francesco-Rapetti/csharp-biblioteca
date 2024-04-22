@@ -80,12 +80,18 @@ namespace csharp_biblioteca
 
             // Ricerche
             Console.WriteLine(Prettifier("Ricerche"));
-            try { Console.WriteLine(library.SearchDocumentByTitle("The Return of the King")); } catch (Exception) { Console.WriteLine("Document not found"); }
-            try { Console.WriteLine(library.SearchUser("pippo@pluto")); } catch (Exception) { Console.WriteLine("User not found"); }
+            // Ricerca documento per titolo
+            try { Console.WriteLine(library.SearchDocumentByTitle("The Return of the King")); } catch (Exception e) { Console.Error.WriteLine(e.Message); }
+            // Ricerca utente per email
+            try { Console.WriteLine(library.SearchUser("pippo@pluto")); } catch (Exception e) { Console.Error.WriteLine(e.Message); }
             Console.WriteLine();
-            try { Console.WriteLine(library.SearchLoan("pippo@pluto", "The Return of the King")); } catch (Exception) { Console.WriteLine("Loan not found"); }
+            // Ricerca prestito per email utente e id documento
+            try { Console.WriteLine(library.SearchLoan("pippo@pluto", book3.Id)); } catch (Exception e) { Console.Error.WriteLine(e.Message); }
             Console.WriteLine();
-            try { Console.WriteLine(library.SearchLoan("pippo@pluto", dvd1.Id)); } catch (Exception) { Console.WriteLine("Loan not found"); }
+            try { Console.WriteLine(library.SearchLoan("pippo@pluto", dvd1.Id)); } catch (Exception e) { Console.Error.WriteLine(e.Message); }
+            Console.WriteLine();
+            // Ricerca prestiti per nome e cognome
+            try { Console.WriteLine("PRESTITI DI PIPPO PLUTO:\n"+string.Join("\n", library.SearchUserLoans("Pippo", "Pluto"))); } catch (Exception e) { Console.Error.WriteLine(e.Message); }
             
         }
 
