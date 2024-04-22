@@ -59,7 +59,7 @@ namespace csharp_biblioteca
             Console.WriteLine(dvd3);
 
             // Biblioteca
-            Biblioteca library = new Biblioteca(new List<Document>() { book1, book2, book3, dvd1, dvd2, dvd3 });
+            Library library = new Library(new List<Document>() { book1, book2, book3, dvd1, dvd2, dvd3 });
 
             // Aggiunta utenti
             library.AddUser(user1);
