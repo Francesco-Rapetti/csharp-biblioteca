@@ -13,6 +13,7 @@ namespace csharp_biblioteca
         public string Email { get; set; }
         public string Password { get; set; }
         public string Phone { get; set; }
+        public List<Loan> Loans { get; }
 
         public User(string name, string surname, string email, string password, string phone)
         {
@@ -21,6 +22,14 @@ namespace csharp_biblioteca
             this.Email = email;
             this.Password = password;
             this.Phone = phone;
+            this.Loans = new List<Loan>();
+        }
+
+        public override string ToString() => $"{this.Name} {this.Surname} - {this.Email}";
+        public void AddLoan(Loan input)
+        {
+            if (this.Loans.Find(loan => loan.User.Email == input.User.Email && loan.Document.Id == input.Document.Id && loan.To != "Not returned yet") == null) this.Loans.Add(input);
+            else Console.WriteLine("Loan already exists");
         }
     }
 }
